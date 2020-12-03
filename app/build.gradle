@@ -1,0 +1,34 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "geddon.com.dirgoolemaps"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [map_key: "AIzaSyCCLveyOKDiXEX8ukMAsZkfpGrrcnkOJKY"]
+        }
+        debug {
+            manifestPlaceholders = [map_key: "AIzaSyCCLveyOKDiXEX8ukMAsZkfpGrrcnkOJKY"]
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation("com.squareup.okhttp3:okhttp:4.0.1")
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    implementation 'com.google.maps.android:android-maps-utils:0.4+'
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+    implementation 'com.alibaba:fastjson:1.2.37'
+    implementation 'com.jakewharton:butterknife:8.4.0'
+}
